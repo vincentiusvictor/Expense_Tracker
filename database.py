@@ -19,8 +19,7 @@ def pull_table(payments):
     return all
 
 def insert_data(table, amount, description):
-    time = datetime.now()
-    time = time.strftime("%d-%m-%Y %H:%M:%S")
+    time = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
     c.execute(f"INSERT INTO {table} VALUES ('{time}', {amount}, '{description}')")
 
 
