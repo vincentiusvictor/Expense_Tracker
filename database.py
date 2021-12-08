@@ -1,5 +1,4 @@
 import sqlite3
-from sqlite3.dbapi2 import connect
 
 conn = sqlite3.connect("expense.db")
 c = conn.cursor()
@@ -21,9 +20,6 @@ def pull_table(payments):
 def insert_data(table, amount, description):
     c.execute(f"INSERT INTO {table} VALUES ({amount}, '{description}')")
 
-# print(
-#     pull_table()
-# )
 
 def main():
     """"""
