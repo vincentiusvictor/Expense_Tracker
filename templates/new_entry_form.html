@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Input your new expense</title>
+  </head>
+  <body>
+    <h1>Please input the expense</h1>
+    <form method="POST" name="calculator">
+      {% if error %}
+      <p style="color:red">Please input a valid amount and category.</p>
+      {% endif %}
+      <p>
+        Please enter your amount of expense:
+      </p>
+      <p>
+        <input type="text" size="4" name="amount">
+      </p>
+      <p>
+        <input type="submit" value="Next step" />
+      <p>
+        Please enter your amount of expense:
+      </p>
+      <p>
+        <input type="text" size="4" name="category">
+      </p>
+      <p>
+        <input type="submit" value="Store" />
+      </p>
+    </form>
+
+  <p></p>
+      <a href="{{ url_for('show_all') }}">Check all of your expense here!</a>
+  </p>
+  </body>
+</html>
