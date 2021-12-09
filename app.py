@@ -1,7 +1,7 @@
 from os import name
 from flask import Flask, render_template, request
 
-from postgresql import insert_data
+from postgresql import insert_data, pull_table
 
 app = Flask(__name__)
 
@@ -17,7 +17,8 @@ def new_entry():
         number = request.form["amount"]
         cat = request.form["category"]
         new_expense = insert_data(name, number, cat)
-        return render_template("new_entry_form.html", new_expense)
+        table = pull_table(name)
+        return render_template("results.html", table)
     else:
         return render_template("new_entry_form.html", error = True)
 
@@ -26,7 +27,8 @@ def new_entry():
 def show_all():
     """show all of the expenses. redirect to new entry and main page 
     """
-    pass
+    table = pull_table(name)
+    return render_template("results.html", table)
 
 if __name__ == '__main__': 
     app.run(debug=True)
