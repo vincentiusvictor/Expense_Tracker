@@ -11,20 +11,22 @@ def index():
 
 @app.route("/new_entry/", methods=["GET", "POST"])
 def new_entry():
-    """add a new expense. redirect to previous and necct page
+    """add a new expense. redirect to previous and next page
     """
     if request.method == "POST":
         number = request.form["amount"]
         cat = request.form["category"]
         new_expense = insert_data(name, number, cat)
-    return render_template("new_entry_form.html", new_expense, error=None)
+        return render_template("new_entry_form.html", new_expense)
+    else:
+        return render_template("new_entry_form.html", error = True)
 
 
 @app.route("/show_all")
 def show_all():
-    """ redirect to new entry and main page 
+    """show all of the expenses. redirect to new entry and main page 
     """
     pass
 
-if __name__ == '__main__':
+if __name__ == '__main__': 
     app.run(debug=True)
