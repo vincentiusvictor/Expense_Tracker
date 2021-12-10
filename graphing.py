@@ -18,17 +18,37 @@ from data import insert_data, pull_table
 # insert_data("payments", 500, 'lunch')
 # insert_data("payments", 200, 'dinner')
 
-a = pull_table("payments")
-print(a)
+
+# print(a)
 
 # def Convert(lst):
 #     res_dct = {lst[i+1]: lst[i] for i in range(0, len(lst), 2)}
 #     return res_dct
 
-def filter(x):
-    for item in x:
-        print(list(item[1:3]))
 
+
+def filter(expenses):
+    lst = []
+    for item in expenses:
+        lst.append(item[1:3])
+    return lst
+
+
+def convert_dict(expenses):
+    d = {}
+    for item in expenses:
+        if item[1] not in d:
+            d[item] = item[0]
+        else:
+            d[item] += item[0]
+    return d
+
+
+data = pull_table("expenses")
+new_data = filter(data)
+print(new_data)
+processed_data = convert_dict(new_data)
+# print(processed_data)
 
 
 # for item in a:
