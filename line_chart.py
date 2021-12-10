@@ -1,21 +1,54 @@
 import matplotlib.pyplot as plt
 from data import pull_table
 
+# def time_plot(expenses):
+#     time = []
+#     for item in expenses:
+#         time.append(item[0])
+#     values = []
+#     for item in expenses:
+#         values.append(item[1])
+#     print(time)
+#     plt.plot(time,values)
+#     plt.title('Expenses during the time')
+#     plt.xlabel('Time')
+#     plt.ylabel('Total expense ($)')
+#     # plt.show()
+#     plt.savefig("templates/output2.jpg")
+#     plt.close()
+
+def filt(expenses):
+    lst = []
+    for item in expenses:
+        lst.append(item[0:2])
+    return lst
+
+def convert_dict(expenses):
+    d = {}
+    for item in expenses:
+        if item[0] not in d:
+            d[item[0]] = item[1]
+        else:
+            d[item[0]] += item[1]
+    return d
+
 def time_plot(expenses):
-    time = []
-    for item in expenses:
-        time.append(item[0])
-    values = []
-    for item in expenses:
-        values.append(item[1])
-    print(time)
-    plt.plot(time,values)
+    dates = list(expenses.keys())           
+    amount = list(expenses.values())        
+    plt.plot_date(dates, amount, '-') 
+    plt.show()
     plt.title('Expenses during the time')
     plt.xlabel('Time')
     plt.ylabel('Total expense ($)')
-    # plt.show()
     plt.savefig("templates/output2.jpg")
     plt.close()
 
-# data = pull_table("expenses")
-# time_plot(data)
+
+data = pull_table("expenses")
+# print(data)
+filtered_data = filt(data)
+# print(filtered_data)
+processed_data = convert_dict(filtered_data)
+# print(processed_data)
+time_plot(processed_data)
+
