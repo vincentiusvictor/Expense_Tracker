@@ -3,6 +3,8 @@ from flask import Flask, render_template, request
 
 import sqlite3 as sql
 from table import ItemTable, Item, create_items
+from data import pull_table
+import graphing
 
 conn = sql.connect("database.db")
 c = conn.cursor()
@@ -68,6 +70,11 @@ def delete():
 @app.route("/graph")
 def graph():
     """""" 
+    data = pull_table("expenses")
+    filtered_data = graphing.filt(data)
+    processed_data = graphing.convert_dict(filtered_data)
+    graphing.bar_graph(processed_data)
+    graphing.time_plot(processed_data)
     return render_template("graph.html")
 
     
