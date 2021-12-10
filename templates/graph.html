@@ -39,10 +39,7 @@
   
       <h1>Results</h1>
       <p>Your expenses are as follow:</p>
-      <form enctype = "multipart/form-data" 
-      action = "save_file.py" method = "post">
-      <p>File: <input type = "file" name = "filename" /></p>
-      <p><input type = "submit" value = "Upload" /></p>
-      </form>
+      <img src="{{ url_for('data', filename='output1.jpg') }}"></img>
+      <img src="{{ url_for('data', filename='output2.jpg') }}"></img>
     </body>
   </html> 
