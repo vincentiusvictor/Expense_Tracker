@@ -19,10 +19,10 @@ def create_table(table):
     """
     c.execute(f"CREATE TABLE {table} (date DATE, amount DECIMAL(30,2), category VARCHAR(25), description VARCHAR(100))")
 
-def pull_table(payments):
+def pull_table(table):
     """pulls data from a table
     """
-    all = c.execute(f"SELECT * FROM {payments}").fetchall()
+    all = c.execute(f"SELECT * FROM {table}").fetchall()
     return all
 
 def insert_data(table, amount, category, description):
@@ -30,7 +30,6 @@ def insert_data(table, amount, category, description):
     """
     time = datetime.now().strftime("%d-%m-%Y")
     c.execute(f"INSERT INTO {table} VALUES ('{time}', {amount}, '{category}', '{description}')")
-
 
 def main():
     """"""

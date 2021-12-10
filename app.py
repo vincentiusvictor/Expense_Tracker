@@ -23,7 +23,7 @@ def new_entry():
     """add a new expense. redirect to previous and next page
     """
     if request.method == "POST":
-        time = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
+        time = datetime.now().strftime("%H:%M:%S")
         amount = request.form["amount"]
         category = request.form["categories"]
         description = request.form["description"]

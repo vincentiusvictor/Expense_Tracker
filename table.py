@@ -1,2 +1,2 @@
 def table():
-    print(f"Date & Time  |  Amount  |  Category  |  Description")
+    print(f"Date  |  Amount  |  Category  |  Description")
