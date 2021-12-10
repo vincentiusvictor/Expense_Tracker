@@ -44,12 +44,12 @@ def time_plot(expenses):
     plt.show()
     plt.savefig("output2.jpg")
 
-def fig_to_base64(fig):
-    img = io.BytesIO()
-    fig.savefig(img, format='png',
-                bbox_inches='tight')
-    img.seek(0)
-    return base64.b64encode(img.getvalue())
+# def fig_to_base64(fig):
+#     img = io.BytesIO()
+#     fig.savefig(img, format='png',
+#                 bbox_inches='tight')
+#     img.seek(0)
+#     return base64.b64encode(img.getvalue())
 
 
 data = pull_table("expenses")
@@ -58,8 +58,5 @@ filtered_data = filter(data)
 # print(filtered_data)
 processed_data = convert_dict(filtered_data)
 # print(processed_data)
-# bar_graph(processed_data)
-# time_plot(data)
-
-# encoded = fig_to_base64(a)
-# encoded = base64.b64encode(b'a')
+bar_graph(processed_data)
+time_plot(data)
