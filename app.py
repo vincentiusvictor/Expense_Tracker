@@ -7,6 +7,8 @@ from data import pull_table
 from bar_chart import filt, convert_dict, bar_graph
 from line_chart import filt2, convert_dict2, time_plot
 
+# creating the database
+
 conn = sql.connect("database.db")
 c = conn.cursor()
 check = c.execute(" SELECT count(name) FROM sqlite_master WHERE type='table' AND name='expenses' ").fetchall()
@@ -15,10 +17,7 @@ if check[0][0] == 0:
 conn.commit()
 conn.close()
 
-image_folder = os.path.join('templates')
-
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = image_folder
 
 @app.route("/")
 def index():
