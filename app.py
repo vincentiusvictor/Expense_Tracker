@@ -51,13 +51,19 @@ def show_all():
         items = create_items(data)
         return render_template("results.html", table = ItemTable(items))
 
-@app.route("/delete")
+@app.route("/delete", methods=["GET", "POST"])
 def delete():
-    if request.form['Yes'] == 'True':
-        with sql.connect("database.db") as conn:
-            c = conn.cursor()
-            data = c.execute("SELECT * FROM expenses").fetchall()
-            conn.commit()
+    if request.method == "POST":
+        try:
+            with sql.connect("database.db") as conn:
+                c = conn.cursor()
+                c.execute("DROP TABLE expenses")
+                c.execute("CREATE TABLE expenses (date DATE, amount DECIMAL(30,2), category VARCHAR(25), description VARCHAR(100))")
+                conn.commit()
+        finally:
+            return render_template("main_page.html")
+    else:
+        return render_template("delete.html")
 
 @app.route("/graph")
 def graph():
