@@ -41,14 +41,12 @@ def time_plot(expenses):
     plt.show()
 
     
-
-
 data = pull_table("expenses")
-print(data)
+# print(data)
 filtered_data = filter(data)
 # print(filtered_data)
 processed_data = convert_dict(filtered_data)
 # print(processed_data)
 # bar_graph(processed_data)
-# time_plot(data)
+time_plot(data)
 
