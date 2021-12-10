@@ -2,20 +2,20 @@ import os
 from flask import Flask, render_template, request
 
 import sqlite3 as sql
-from table import ItemTable, Item, create_items
-from data import pull_table
+from table import ItemTable, create_items
 from bar_chart import filt, convert_dict, bar_graph
 from line_chart import filt2, convert_dict2, time_plot
 
-# creating the database
-
-conn = sql.connect("database.db")
-c = conn.cursor()
-check = c.execute(" SELECT count(name) FROM sqlite_master WHERE type='table' AND name='expenses' ").fetchall()
-if check[0][0] == 0:
-    c.execute(f"CREATE TABLE expenses (date DATE, amount DECIMAL(30,2), category VARCHAR(25), description VARCHAR(100))")
-conn.commit()
-conn.close()
+def create_db():
+    """Creates the databse with a table named 'expenses'.
+    """
+    conn = sql.connect("database.db")
+    c = conn.cursor()
+    check = c.execute(" SELECT count(name) FROM sqlite_master WHERE type='table' AND name='expenses' ").fetchall()
+    if check[0][0] == 0:
+        c.execute(f"CREATE TABLE expenses (date DATE, amount DECIMAL(30,2), category VARCHAR(25), description VARCHAR(100))")
+    conn.commit()
+    conn.close()
 
 app = Flask(__name__)
 
