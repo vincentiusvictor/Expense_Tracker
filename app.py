@@ -86,6 +86,15 @@ def graph():
     # full_filename = os.path.join(app.config['UPLOAD_FOLDER'], 'output1.jpg')
     return render_template("graph.html")
 
-    
-if __name__ == '__main__': 
+
+def app_start():
+    """Generate a database if it does not exist, then run the application.
+    """
+    create_db()
     app.run(debug=True)
+
+def main():
+    app_start()
+
+if __name__ == '__main__': 
+    main()
