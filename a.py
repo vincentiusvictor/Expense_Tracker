@@ -29,7 +29,7 @@ def insert_data(table, amount, category, description):
     """Inserts a new entry into a table
     """
     time = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
-    c.execute(f"INSERT INTO {table} VALUES ('{time}', {amount}, '{category}' '{description}')")
+    c.execute(f"INSERT INTO {table} VALUES ('{time}', {amount}, '{category}', '{description}')")
 
 
 def main():
