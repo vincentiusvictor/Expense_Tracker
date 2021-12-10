@@ -1,4 +1,4 @@
-import sqlite3 as sql
+import sql_commands as sql
 
 def create_new_table(name):
     """creates a new table entry in the database, 
