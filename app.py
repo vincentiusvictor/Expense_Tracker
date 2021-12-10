@@ -59,6 +59,9 @@ def delete():
             data = c.execute("SELECT * FROM expenses").fetchall()
             conn.commit()
 
+@app.route("/graph")
+def graph():
+    """""" 
 
 if __name__ == '__main__': 
     app.run(debug=True)
