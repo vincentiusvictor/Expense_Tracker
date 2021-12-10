@@ -16,7 +16,8 @@ def new_entry():
     if request.method == "POST":
         number = request.form["amount"]
         cat = request.form["category"]
-        new_expense = insert_data(name, number, cat)
+        desc = request.form["description"]
+        new_expense = insert_data(name, number, cat, desc)
         table = pull_table(name)
         return render_template("results.html", table)
     else:
