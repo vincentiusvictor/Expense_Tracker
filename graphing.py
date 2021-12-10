@@ -1,11 +1,7 @@
 import matplotlib.pyplot as plt
-import pandas as pd
 from data import pull_table
-import io
-import base64
 
-
-def filter(expenses):
+def filt(expenses):
     lst = []
     for item in expenses:
         lst.append(item[1:3])
@@ -27,7 +23,7 @@ def bar_graph(expenses):
     plt.xlabel("Expenses Category")
     plt.ylabel("Total amount in $")
     plt.title("Total amount of $ of expense per category ")
-    plt.show()
+    # plt.show()
     plt.savefig("output1.jpg")
 
 def time_plot(expenses):
@@ -41,25 +37,15 @@ def time_plot(expenses):
     plt.title('Expenses during the time')
     plt.xlabel('Time')
     plt.ylabel('Total expense ($)')
-    plt.show()
+    # plt.show()
     plt.savefig("output2.jpg")
-
-def fig_to_base64(fig):
-    img = io.BytesIO()
-    fig.savefig(img, format='png',
-                bbox_inches='tight')
-    img.seek(0)
-    return base64.b64encode(img.getvalue())
 
 
 data = pull_table("expenses")
 # print(data)
-filtered_data = filter(data)
+filtered_data = filt(data)
 # print(filtered_data)
 processed_data = convert_dict(filtered_data)
 # print(processed_data)
 # bar_graph(processed_data)
 # time_plot(data)
-
-# encoded = fig_to_base64(a)
-# encoded = base64.b64encode(b'a')
