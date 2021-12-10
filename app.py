@@ -76,7 +76,7 @@ def graph():
     filtered_data = graphing.filt(data)
     processed_data = graphing.convert_dict(filtered_data)
     graphing.bar_graph(processed_data)
-    graphing.time_plot(processed_data)
+    graphing.time_plot(data)
     return render_template("graph.html")
 
     
