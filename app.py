@@ -17,9 +17,8 @@ def new_entry():
         number = request.form["amount"]
         cat = request.form["category"]
         desc = request.form["description"]
-        new_expense = insert_data(name, number, cat, desc)
-        table = pull_table(name)
-        return render_template("results.html", table)
+        insert_data(name, number, cat, desc)
+        return render_template("results.html")
     else:
         return render_template("new_entry_form.html", error = True)
 
