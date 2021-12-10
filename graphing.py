@@ -41,14 +41,21 @@ def convert_dict_2(expenses):
             d[item[0]] += item[1]
     return d
 
+
 def time_plot(expenses):
     time = []
     for item in expenses:
         time.append(item[0])
     values = []
     for item in expenses:
-        time.append(item[2])
-    return values
+        values.append(item[1])
+    plt.plot(time,values)
+    plt.title('Expenses during the time')
+    plt.xlabel('Time')
+    plt.ylabel('Total amount in $')
+    plt.show()
+
+    
 
 
 
@@ -60,8 +67,5 @@ filtered_data = filter(data)
 processed_data = convert_dict(filtered_data)
 # print(processed_data)
 # bar_graph(processed_data)
-filtered_data_2 = filter_2(data)
-# print(filtered_data_2)
-processed_data_2 = convert_dict_2(filtered_data_2)
-# print(processed_data_2)
-print(time_plot(data))
+time_plot(data)
+
