@@ -1,8 +1,7 @@
-import os
 from flask import Flask, render_template, request
-
 import sqlite3 as sql
 from table import ItemTable, create_items
+from data import pull_table
 from bar_chart import filt, convert_dict, bar_graph
 from line_chart import filt2, convert_dict2, time_plot
 
@@ -86,15 +85,6 @@ def graph():
     # full_filename = os.path.join(app.config['UPLOAD_FOLDER'], 'output1.jpg')
     return render_template("graph.html")
 
-
-def app_start():
-    """Generate a database if it does not exist, then run the application.
-    """
-    create_db()
-    app.run(debug=True)
-
-def main():
-    app_start()
-
+    
 if __name__ == '__main__': 
-    main()
+    app.run(debug=True)
