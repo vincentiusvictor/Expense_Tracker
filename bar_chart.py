@@ -25,6 +25,7 @@ def bar_graph(expenses):
     plt.title("Total amount of $ of expense per category ")
     # plt.show()
     plt.savefig("templates/output1.jpg")
+    plt.close()
 
 # data = pull_table("expenses")
 # print(data)

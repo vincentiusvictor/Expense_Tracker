@@ -15,6 +15,7 @@ def time_plot(expenses):
     plt.ylabel('Total expense ($)')
     # plt.show()
     plt.savefig("templates/output2.jpg")
+    plt.close()
 
-data = pull_table("expenses")
-time_plot(data)
+# data = pull_table("expenses")
+# time_plot(data)
