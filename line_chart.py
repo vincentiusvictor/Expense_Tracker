@@ -20,11 +20,11 @@ def time_plot(expenses):
     dates = list(expenses.keys())           
     amount = list(expenses.values())        
     plt.plot_date(dates, amount, '-') 
-    plt.show()
-    plt.title('Expenses during the time')
+    # plt.show()
+    plt.title('Total Expenses Over Time')
     plt.xlabel('Time')
     plt.ylabel('Total expense ($)')
-    plt.savefig("templates/output2.jpg")
+    plt.savefig("static/output2.jpg")
     plt.close()
 
 

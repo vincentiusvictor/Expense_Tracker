@@ -1,4 +1,4 @@
-from os import name
+import os
 from flask import Flask, render_template, request
 
 import sqlite3 as sql
@@ -15,7 +15,10 @@ if check[0][0] == 0:
 conn.commit()
 conn.close()
 
+image_folder = os.path.join('templates')
+
 app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = image_folder
 
 @app.route("/")
 def index():
@@ -80,6 +83,8 @@ def graph():
     processed_data_2 = convert_dict2(filtered_data_2)
     bar_graph(processed_data)
     time_plot(processed_data_2)
+    
+    # full_filename = os.path.join(app.config['UPLOAD_FOLDER'], 'output1.jpg')
     return render_template("graph.html")
 
     
