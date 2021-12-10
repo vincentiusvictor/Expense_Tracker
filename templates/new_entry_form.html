@@ -5,47 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Input your new expense</title>
   </head>
+
   <body>
+    <div class="topnav">
+      <a class="active" href="#home">Home</a>
+      <a href="{{ url_for('') }}">News</a>
+      <a href="{{ url_for('new_entry') }}">New Entry</a>
+      <a href="{{ url_for('show_all') }}">Show All</a>
+    </div>
+    
     <h1>Please input the expense</h1>
-    <form method="POST" name="calculator">
-      {% if error %}
+    <form method="POST" name="new_entry">
+      <!-- {% if error %}
       <p style="color:red">Please input a valid amount and category.</p>
       {% endif %}
-      <p>
+       -->
+      <p> 
         Please enter your amount of expense ($):
       </p>
-      <p>
-        <input type="text" size="4" name="amount">
+
+      <p> 
+        <input type="number" size="4" name="amount"> 
       </p>
+
       <p>
-      <form>  
-        <label> Select Category </label>  
-        <select>  
-        <option value = "Home & Utilities"> Home & Utilities   
-        </option>  
-        <option value = "Transportation"> Transportation   
-        </option>  
-        <option value = "Groceries"> Groceries  
-        </option>  
-        <option value = "Health"> Health  
-        </option>
-        <option value = "Restaurants & Dining"> Restaurants & Dining  
-        </option>
-        <option value = "Shopping & Entertainment"> Shopping & Entertainment  
-        </option>
-        <option value = "Travel"> Travel  
-        </option>
-        <option value = "Cash, Checks & Misc"> Cash, Checks & Misc
-        </option>
-        <option value = "Finance"> Finance   
-        </option>  
+        <label for="categories"> Select Category </label>  
+        <select name="categories" id="categories">  
+          <option value = "Home & Utilities">Home & Utilities</option>  
+          <option value = "Transportation">Transportation</option>  
+          <option value = "Groceries">Groceries</option>  
+          <option value = "Health">Health</option>
+          <option value = "Restaurants & Dining">Restaurants & Dining</option>
+          <option value = "Shopping & Entertainment">Shopping & Entertainment</option>
+          <option value = "Travel">Travel</option>
+          <option value = "Cash, Checks & Misc">Cash, Checks & Misc</option>
+          <option value = "Finance">Finance</option>  
         </select>  
-        </form>  
+      </p>
+      
+      <p>
+        Description:
+        <input type="text" size="4" name="description">
+      </p>
+
+      <p>
         <input type="submit" value="Store the expense" />
       </p>
     </form>
 
-  <p></p>
+  <p>
       <a href="{{ url_for('show_all') }}">Check all of your expense here!</a>
   </p>
   </body>

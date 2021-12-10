@@ -5,6 +5,13 @@
     <title>Expense Tracker</title>
 </head>
 <body>
+    <div class="topnav">
+        <a class="active" href="#home">Home</a>
+        <a href="{{ url_for('') }}">News</a>
+        <a href="{{ url_for('new_entry') }}">New Entry</a>
+        <a href="{{ url_for('show_all') }}">Show All</a>
+      </div>
+      
     <h1>Expense Tracker</h1>
     <p>
         <a href="{{ url_for('new_entry') }}">Input new expense here!</a>
