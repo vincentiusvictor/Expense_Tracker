@@ -19,16 +19,23 @@
       <p style="color:red">Please input a valid amount and category.</p>
       {% endif %}
        -->
+
+       <p> 
+        Please enter the date:
+      </p>
+      <p> 
+        <input type="date" size="4" name="date"> 
+      </p>
+      
       <p> 
         Please enter your amount of expense ($):
       </p>
-
       <p> 
         <input type="number" size="4" name="amount"> 
       </p>
 
       <p>
-        <label for="categories"> Select Category </label>  
+        <label for="categories"> Select expense category: </label>  
         <select name="categories" id="categories">  
           <option value = "Necessities">Necessities</option>   
           <option value = "Food & Grocery">Food & Grocery</option>
@@ -39,7 +46,7 @@
       </p>
       
       <p>
-        Description:
+        Enter description:
         <input type="text" size="4" name="description">
       </p>
 

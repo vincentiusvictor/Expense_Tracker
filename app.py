@@ -8,7 +8,7 @@ conn = sql.connect("database.db")
 c = conn.cursor()
 check = c.execute(" SELECT count(name) FROM sqlite_master WHERE type='table' AND name='expenses' ").fetchall()
 if check[0][0] == 0:
-    c.execute(f"CREATE TABLE expenses (date DATETIME, amount DECIMAL(30,2), category VARCHAR(25), description VARCHAR(100))")
+    c.execute(f"CREATE TABLE expenses (date DATE, amount DECIMAL(30,2), category VARCHAR(25), description VARCHAR(100))")
 conn.commit()
 conn.close()
 
@@ -23,7 +23,7 @@ def new_entry():
     """add a new expense. redirect to previous and next page
     """
     if request.method == "POST":
-        time = datetime.now().strftime("%H:%M:%S")
+        time = request.form["date"]
         amount = request.form["amount"]
         category = request.form["categories"]
         description = request.form["description"]
