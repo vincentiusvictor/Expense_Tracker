@@ -25,10 +25,10 @@ def pull_table(table):
     all = c.execute(f"SELECT * FROM {table}").fetchall()
     return all
 
-def insert_data(table, amount, category, description):
+def insert_data(table, time, amount, category, description):
     """Inserts a new entry into a table
     """
-    time = datetime.now().strftime("%d-%m-%Y")
+    # time = datetime.now().strftime("%d-%m-%Y")
     c.execute(f"INSERT INTO {table} VALUES ('{time}', {amount}, '{category}', '{description}')")
 
 def main():
