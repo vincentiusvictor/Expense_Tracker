@@ -17,7 +17,7 @@ def delete_table(table):
 def create_table(table): 
     """creates a new table in the database
     """
-    c.execute(f"CREATE TABLE {table} (date DATETIME, amount DECIMAL(30,2), category VARCHAR(25), description VARCHAR(100))")
+    c.execute(f"CREATE TABLE {table} (date DATE, amount DECIMAL(30,2), category VARCHAR(25), description VARCHAR(100))")
 
 def pull_table(payments):
     """pulls data from a table
@@ -28,7 +28,7 @@ def pull_table(payments):
 def insert_data(table, amount, category, description):
     """Inserts a new entry into a table
     """
-    time = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
+    time = datetime.now().strftime("%d-%m-%Y")
     c.execute(f"INSERT INTO {table} VALUES ('{time}', {amount}, '{category}', '{description}')")
 
 
