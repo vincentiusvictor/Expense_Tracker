@@ -56,8 +56,11 @@ def delete():
     if request.form['Yes'] == 'True':
         with sql.connect("database.db") as conn:
             c = conn.cursor()
-            data = c.execute("SELECT * FROM expenses").fetchall()
+            c.execute("DROP TABLE expenses")
+            c.execute("CREATE TABLE expenses (date DATE, amount DECIMAL(30,2), category VARCHAR(25), description VARCHAR(100))")
             conn.commit()
+    else:
+        return render_template("delete.html")
 
 @app.route("/graph")
 def graph():
