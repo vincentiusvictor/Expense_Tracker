@@ -1,13 +1,13 @@
 import matplotlib.pyplot as plt
 from data import pull_table
 
-def filt(expenses):
+def filt2(expenses):
     lst = []
     for item in expenses:
         lst.append(item[0:2])
     return lst
 
-def convert_dict(expenses):
+def convert_dict2(expenses):
     d = {}
     for item in expenses:
         if item[0] not in d:
@@ -28,11 +28,11 @@ def time_plot(expenses):
     plt.close()
 
 
-data = pull_table("expenses")
+# data = pull_table("expenses")
 # print(data)
-filtered_data = filt(data)
-# print(filtered_data)
-processed_data = convert_dict(filtered_data)
-# print(processed_data)
-time_plot(processed_data)
+# filtered_data2 = filt2(data)
+# print(filtered_data2)
+# processed_data2 = convert_dict2(filtered_data)
+# print(processed_data2)
+# time_plot(processed_data2)
 
