@@ -41,11 +41,11 @@ def time_plot(expenses):
     plt.savefig("output2.jpg")
 
 
-# data = pull_table("expenses")
+data = pull_table("expenses")
 # # print(data)
-# filtered_data = filt(data)
+filtered_data = filt(data)
 # # print(filtered_data)
-# processed_data = convert_dict(filtered_data)
+processed_data = convert_dict(filtered_data)
 # # print(processed_data)
-# bar_graph(processed_data)
-# time_plot(data)
+bar_graph(processed_data)
+time_plot(data)
