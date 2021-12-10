@@ -26,21 +26,6 @@ def bar_graph(expenses):
     plt.title("Total amount of $ of expense per category ")
     plt.show()
 
-def filter_2(expenses):
-    lst = []
-    for item in expenses:
-        lst.append(item[0:2])
-    return lst
-
-def convert_dict_2(expenses):
-    d = {}
-    for item in expenses:
-        if item[0] not in d:
-            d[item[0]] = item[1]
-        else:
-            d[item[0]] += item[1]
-    return d
-
 
 def time_plot(expenses):
     time = []
@@ -52,12 +37,10 @@ def time_plot(expenses):
     plt.plot(time,values)
     plt.title('Expenses during the time')
     plt.xlabel('Time')
-    plt.ylabel('Total amount in $')
+    plt.ylabel('Total expense ($)')
     plt.show()
 
     
-
-
 
 
 data = pull_table("expenses")
@@ -67,5 +50,5 @@ filtered_data = filter(data)
 processed_data = convert_dict(filtered_data)
 # print(processed_data)
 # bar_graph(processed_data)
-time_plot(data)
+# time_plot(data)
 
