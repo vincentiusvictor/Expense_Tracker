@@ -4,7 +4,8 @@ from flask import Flask, render_template, request
 import sqlite3 as sql
 from table import ItemTable, Item, create_items
 from data import pull_table
-import graphing
+from line_chart import time_plot
+from bar_chart import bar_graph
 
 conn = sql.connect("database.db")
 c = conn.cursor()
@@ -70,13 +71,11 @@ def delete():
 @app.route("/graph")
 def graph():
     """""" 
-    with sql.connect("database.db") as conn:
-        c = conn.cursor()
-        data = c.execute(f"SELECT * FROM expenses").fetchall()
-    filtered_data = graphing.filt(data)
-    processed_data = graphing.convert_dict(filtered_data)
-    graphing.bar_graph(processed_data)
-    graphing.time_plot(data)
+    data = pull_table("expenses")
+    filtered_data = bar_graph.filt(data)
+    processed_data = bar_graph.convert_dict(filtered_data)
+    bar_graph(processed_data)
+    time_plot(data)
     return render_template("graph.html")
 
     

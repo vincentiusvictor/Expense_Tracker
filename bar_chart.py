@@ -26,26 +26,11 @@ def bar_graph(expenses):
     # plt.show()
     plt.savefig("output1.jpg")
 
-def time_plot(expenses):
-    time = []
-    for item in expenses:
-        time.append(item[0])
-    values = []
-    for item in expenses:
-        values.append(item[1])
-    plt.plot(time,values)
-    plt.title('Expenses during the time')
-    plt.xlabel('Time')
-    plt.ylabel('Total expense ($)')
-    # plt.show()
-    plt.savefig("output2.jpg")
-
-
 data = pull_table("expenses")
-# # print(data)
+print(data)
 filtered_data = filt(data)
-# # print(filtered_data)
+# print(filtered_data)
 processed_data = convert_dict(filtered_data)
-# # print(processed_data)
+# print(processed_data)
 bar_graph(processed_data)
-time_plot(data)
+
