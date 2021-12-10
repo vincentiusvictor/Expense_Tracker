@@ -1,28 +1,29 @@
-import matplotlib.pyplot as plt
-import pandas as pd
-from postgresql import insert_data, pull_table
+# import matplotlib.pyplot as plt
+# import pandas as pd
+from data import insert_data, pull_table
 
-def bar_graph(expenses):
-    cat = list(expenses.keys())
-    values = list(expenses.values())
-    fig = plt.figure(figsize = (10, 5))
-    plt.bar(cat, values, color ='maroon', width = 0.4)
-    plt.xlabel("Expenses Category")
-    plt.ylabel("Total amount in $")
-    plt.title("Total amount of $ of expense per category ")
-    plt.show()
+# def bar_graph(expenses):
+#     cat = list(expenses.keys())
+#     values = list(expenses.values())
+#     fig = plt.figure(figsize = (10, 5))
+#     plt.bar(cat, values, color ='maroon', width = 0.4)
+#     plt.xlabel("Expenses Category")
+#     plt.ylabel("Total amount in $")
+#     plt.title("Total amount of $ of expense per category ")
+#     plt.show()
 
-data = {"Home & Utilities":100, "Transportation":200}
-# bar_graph(data)
+# data = {"Home & Utilities":100, "Transportation":200}
+# # bar_graph(data)
 
-insert_data("payments", 500, 'lunch')
-insert_data("payments", 200, 'dinner')
+# insert_data("payments", 500, 'lunch')
+# insert_data("payments", 200, 'dinner')
+
 a = pull_table("payments")
 print(a)
 
-def Convert(lst):
-    res_dct = {lst[i+1]: lst[i] for i in range(0, len(lst), 2)}
-    return res_dct
+# def Convert(lst):
+#     res_dct = {lst[i+1]: lst[i] for i in range(0, len(lst), 2)}
+#     return res_dct
 
 def filter(x):
     for item in x:
