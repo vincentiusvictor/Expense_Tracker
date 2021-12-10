@@ -4,9 +4,24 @@
     <meta charset="UTF-8">
     <title>Expense Tracker</title>
     <style>
+        #yes{
+        margin-top:10px;
+        margin-left:10px;
+        padding: 10px;
+        font-size: 20px;
+        }
+
+        button{
+        margin-top:10px;
+        margin-left:10px;
+        padding: 10px;
+        font-size: 20px;
+        }
+
         body {
         margin: 10;
         font-family: sans-serif;
+        font-size: 30px;
         }
 
         .topnav {
@@ -20,7 +35,7 @@
           text-align: center;
           padding: 14px 16px;
           text-decoration: none;
-          font-size: 17px;
+          font-size: 20px;
         }
         
         .topnav a:hover {
@@ -42,7 +57,7 @@
     
     <form id="package_form" action="" method="post">
       <div class="panel-body">
-          <input type ="submit" name="action" value="Yes">
+          <input type ="submit" id="yes" name="action" value="Yes">
       </div>
     </form>
     <form method="get" action="/">

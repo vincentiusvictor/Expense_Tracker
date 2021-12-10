@@ -8,6 +8,7 @@
       body {
       margin: 10;
       font-family: sans-serif;
+      font-size: 30px;
       }
 
       .topnav {
@@ -21,7 +22,7 @@
         text-align: center;
         padding: 14px 16px;
         text-decoration: none;
-        font-size: 17px;
+        font-size: 20px;
       }
       
       .topnav a:hover {
@@ -61,8 +62,8 @@
         <input type="number" size="4" name="amount"> 
       </p>
 
+      <p><label for="categories"> Select expense category: </label>  </p>
       <p>
-        <label for="categories"> Select expense category: </label>  
         <select name="categories" id="categories">  
           <option value = "Necessities">Necessities</option>   
           <option value = "Food & Grocery">Food & Grocery</option>
@@ -72,11 +73,9 @@
         </select>  
       </p>
       
-      <p>
-        Enter description:
-        <input type="text" size="4" name="description">
-      </p>
-
+      <p>Enter description:</p>
+      <p><input type="text" size="4" name="description"></p>
+      
       <p>
         <input type="submit" value="Store the expense" />
       </p>
