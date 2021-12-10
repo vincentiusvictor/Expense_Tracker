@@ -16,5 +16,5 @@ def time_plot(expenses):
     # plt.show()
     plt.savefig("output2.jpg")
 
-data = pull_table("expenses")
-time_plot(data)
+# data = pull_table("expenses")
+# time_plot(data)

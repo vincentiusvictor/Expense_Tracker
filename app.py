@@ -5,7 +5,7 @@ import sqlite3 as sql
 from table import ItemTable, Item, create_items
 from data import pull_table
 from line_chart import time_plot
-from bar_chart import bar_graph
+from bar_chart import filt, convert_dict, bar_graph
 
 conn = sql.connect("database.db")
 c = conn.cursor()
@@ -71,9 +71,11 @@ def delete():
 @app.route("/graph")
 def graph():
     """""" 
-    data = pull_table("expenses")
-    filtered_data = bar_graph.filt(data)
-    processed_data = bar_graph.convert_dict(filtered_data)
+    with sql.connect("database.db") as conn:
+        c = conn.cursor()
+        data = c.execute(f"SELECT * FROM expenses").fetchall()
+    filtered_data = filt(data)
+    processed_data = convert_dict(filtered_data)
     bar_graph(processed_data)
     time_plot(data)
     return render_template("graph.html")

@@ -30,24 +30,26 @@
         </style>
 </head>
 <body>
-    <div class="topnav">
-        <a class="active" href="/">Home</a>
-        <a href="{{ url_for('new_entry') }}">New Entry</a>
-        <a href="{{ url_for('show_all') }}">Show All</a>
-    </div>
+  <div class="topnav">
+    <a class="active" href="/">Home</a>
+    <a href="{{ url_for('new_entry') }}">New Entry</a>
+    <a href="{{ url_for('show_all') }}">Show All</a>
+    <a href="{{ url_for('graph') }}">Graph Data</a>
+    <a href="{{ url_for('delete') }}">Delete Data</a>
+</div>
 
     <h1>Expense Tracker</h1>
-    <p>
-        <a href="{{ url_for('new_entry') }}">Input new expense here!</a>
-    </p>
-    <p>
-        <a href="{{ url_for('show_all') }}">Check all of your expense here!</a>
-    </p>
-    <p>
-      <a href="{{ url_for('graph') }}">Check out all graphs here!</a>
-    </p>
-    <p>
-      <a href="{{ url_for('delete') }}">Reset all data</a>
-    </p>
+    <form method="get" action="{{ url_for('new_entry') }}">
+      <button type="submit">Input New Expense</button>
+    </form>
+    <form method="get" action="{{ url_for('show_all') }}">
+      <button type="submit">Show All Expenses</button>
+    </form>
+    <form method="get" action="{{ url_for('graph') }}">
+      <button type="submit">Show Grpahs</button>
+    </form>
+    <form method="get" action="{{ url_for('delete') }}">
+      <button type="submit">Erase Data</button>
+    </form>
 </body>
 </html>

@@ -26,11 +26,11 @@ def bar_graph(expenses):
     # plt.show()
     plt.savefig("output1.jpg")
 
-data = pull_table("expenses")
-print(data)
-filtered_data = filt(data)
-# print(filtered_data)
-processed_data = convert_dict(filtered_data)
-# print(processed_data)
-bar_graph(processed_data)
+# data = pull_table("expenses")
+# print(data)
+# filtered_data = filt(data)
+# # print(filtered_data)
+# processed_data = convert_dict(filtered_data)
+# # print(processed_data)
+# bar_graph(processed_data)
 
