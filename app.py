@@ -70,7 +70,9 @@ def delete():
 @app.route("/graph")
 def graph():
     """""" 
-    data = pull_table("expenses")
+    with sql.connect("database.db") as conn:
+        c = conn.cursor()
+        data = c.execute(f"SELECT * FROM expenses").fetchall()
     filtered_data = graphing.filt(data)
     processed_data = graphing.convert_dict(filtered_data)
     graphing.bar_graph(processed_data)
