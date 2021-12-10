@@ -1,8 +1,8 @@
 from os import name
 from flask import Flask, render_template, request
 
-from datetime import datetime
 import sqlite3 as sql
+from table import table
 
 conn = sql.connect("database.db")
 c = conn.cursor()
@@ -48,7 +48,7 @@ def show_all():
         c = conn.cursor()
         data = c.execute("SELECT * FROM expenses").fetchall()
         conn.commit()
-        return render_template("results.html", data = data)
+        return render_template("results.html", data = table(data))
 
 if __name__ == '__main__': 
     app.run(debug=True)
