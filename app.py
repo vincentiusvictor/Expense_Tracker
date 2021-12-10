@@ -2,7 +2,7 @@ from os import name
 from flask import Flask, render_template, request
 
 import sqlite3 as sql
-from table import table
+from table import ItemTable, Item, create_items
 
 conn = sql.connect("database.db")
 c = conn.cursor()
@@ -48,7 +48,8 @@ def show_all():
         c = conn.cursor()
         data = c.execute("SELECT * FROM expenses").fetchall()
         conn.commit()
-        return render_template("results.html", data = table(data))
+        items = create_items(data)
+        return render_template("results.html", table = ItemTable(items))
 
 if __name__ == '__main__': 
     app.run(debug=True)

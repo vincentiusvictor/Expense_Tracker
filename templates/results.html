@@ -27,6 +27,18 @@
         background-color: #ddd;
         color: black;
       }
+
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 50%;
+      }
+
+      td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
       </style>
   </head>
   
@@ -39,7 +51,7 @@
 
     <h1>Results</h1>
     <p>Your expenses are as follow:</p>
-    <p>{{ data }}</p>
+    <p>{{ table }}</p>
     </table>
   </body>
 </html>
