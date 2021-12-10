@@ -54,11 +54,13 @@ def show_all():
 @app.route("/delete", methods=["GET", "POST"])
 def delete():
     if request.method == "POST":
-        with sql.connect("database.db") as conn:
-            c = conn.cursor()
-            c.execute("DROP TABLE expenses")
-            c.execute("CREATE TABLE expenses (date DATE, amount DECIMAL(30,2), category VARCHAR(25), description VARCHAR(100))")
-            conn.commit()
+        try:
+            with sql.connect("database.db") as conn:
+                c = conn.cursor()
+                c.execute("DROP TABLE expenses")
+                c.execute("CREATE TABLE expenses (date DATE, amount DECIMAL(30,2), category VARCHAR(25), description VARCHAR(100))")
+                conn.commit()
+        finally:
             return render_template("main_page.html")
     else:
         return render_template("delete.html")
