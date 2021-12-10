@@ -28,11 +28,14 @@ def new_entry():
         category = request.form["categories"]
         description = request.form["description"]
         
-        with sql.connect("database.db") as conn:
-            c = conn.cursor()
-            c.execute(f"INSERT INTO expenses VALUES ('{time}', {amount}, '{category}', '{description}')")
-            conn.commit()
-            return render_template("entry_success.html")
+        if amount and category:
+            with sql.connect("database.db") as conn:
+                c = conn.cursor()
+                c.execute(f"INSERT INTO expenses VALUES ('{time}', {amount}, '{category}', '{description}')")
+                conn.commit()
+                return render_template("entry_success.html")
+        else:
+            return render_template("entry_fail.html")
     else:
         return render_template("new_entry_form.html", error = True)
 
