@@ -51,5 +51,14 @@ def show_all():
         items = create_items(data)
         return render_template("results.html", table = ItemTable(items))
 
+@app.route("/delete")
+def delete():
+    if request.form['Yes'] == 'True':
+        with sql.connect("database.db") as conn:
+            c = conn.cursor()
+            data = c.execute("SELECT * FROM expenses").fetchall()
+            conn.commit()
+
+
 if __name__ == '__main__': 
     app.run(debug=True)
