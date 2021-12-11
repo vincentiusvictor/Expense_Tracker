@@ -35,21 +35,15 @@
     <div class="topnav">
       <a class="active" href="/">Home</a>
       <a href="{{ url_for('new_entry') }}">New Entry</a>
-      <a href="{{ url_for('show_all') }}">Show All Data</a>
+      <a href="{{ url_for('show_all') }}">Show All</a>
       <a href="{{ url_for('graph') }}">Graph Data</a>
       <a href="{{ url_for('delete') }}">Delete Data</a>
   </div>
 
     <h1>Results</h1>
     <p>Your new entry has been added succefully.</p>
-
     <p>
-      <a href="{{ url_for('show_all') }}">Show All Expenses</a>
+      <a href="{{ url_for('show_all') }}">Show all your expenses!</a>
     </p>
-    <p>
-      <a href="{{ url_for('graph') }}">Show All Graphs</a>
-    </p>
-
-    <p> <a href="/">Back to Home Page</a> </p>
   </body>
 </html>

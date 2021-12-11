@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request
 import sqlite3 as sql
 from table import ItemTable, create_items
-from data import pull_table
 from bar_chart import filt, convert_dict, bar_graph
 from line_chart import filt2, convert_dict2, time_plot
 
@@ -81,8 +80,6 @@ def graph():
     processed_data_2 = convert_dict2(filtered_data_2)
     bar_graph(processed_data)
     time_plot(processed_data_2)
-    
-    # full_filename = os.path.join(app.config['UPLOAD_FOLDER'], 'output1.jpg')
     return render_template("graph.html")
 
     

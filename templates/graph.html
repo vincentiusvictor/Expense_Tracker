@@ -35,7 +35,7 @@
       <div class="topnav">
         <a class="active" href="/">Home</a>
         <a href="{{ url_for('new_entry') }}">New Entry</a>
-        <a href="{{ url_for('show_all') }}">Show All Data</a>
+        <a href="{{ url_for('show_all') }}">Show All</a>
         <a href="{{ url_for('graph') }}">Graph Data</a>
         <a href="{{ url_for('delete') }}">Delete Data</a>
     </div>
@@ -45,7 +45,5 @@
       
       <img src="{{ url_for('static', filename='output1.jpg') }}" title="barplot" style="width:600px"/></img>
       <img src="{{ url_for('static', filename='output2.jpg') }}" title="timeseries" style="width:600px"/></img>
-      
-      <p> <a href="/">Back to Home Page</a> </p>
     </body>
   </html> 
