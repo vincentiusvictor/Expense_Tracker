@@ -2,12 +2,14 @@ import matplotlib.pyplot as plt
 from data import pull_table
 
 def filt2(expenses):
+    """filter the amount and date from the expenses"""
     lst = []
     for item in expenses:
         lst.append(item[0:2])
     return lst
 
 def convert_dict2(expenses):
+    """"add up the amount under the same date and store it in a dictionary"""
     d = {}
     for item in expenses:
         if item[0] not in d:
@@ -17,6 +19,7 @@ def convert_dict2(expenses):
     return d
 
 def time_plot(expenses):
+    """make a line chart based on the dictionary"""
     dates = list(expenses.keys())           
     amount = list(expenses.values())        
     plt.plot_date(dates, amount, '-') 
