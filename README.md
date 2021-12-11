@@ -29,3 +29,7 @@ This python folder is used to set up the website and route each link to its resp
 The templates file includes multiple HTML files that are used to design the website. Files explanation is as followed: main_page.html (home page), new_entry_form.html (form page for the user to fill out their expense), entry_success.html (redirect the page to result if entry is successful), entry_fail.html (shows an error message if the information is lacking), results.html (the page that shows the result in table), delete.html (page to delete all of the previous data), and graph.html (page to show the graph).
 ### static
 This file is to save the image output from the bar_chart.py and line_chart.py
+
+
+## Website for the project
+https://sites.google.com/babson.edu/expense-tracker/home?authuser=2 
