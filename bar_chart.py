@@ -2,12 +2,14 @@ import matplotlib.pyplot as plt
 from data import pull_table
 
 def filt(expenses):
+    """filter the amount and category from the expenses"""
     lst = []
     for item in expenses:
         lst.append(item[1:3])
     return lst
 
 def convert_dict(expenses):
+    """add up the amount under the same category and store it in a dictionary"""
     d = {}
     for item in expenses:
         if item[1] not in d:
@@ -17,6 +19,7 @@ def convert_dict(expenses):
     return d
 
 def bar_graph(expenses):
+    """make a bar graph based on the dictionary"""
     cat = list(expenses.keys())
     values = list(expenses.values())
     plt.bar(cat, values, color ='maroon', width = 0.4)
