@@ -19,11 +19,14 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
+    """Creates the home page of the web application.
+    """
     return render_template("main_page.html")
 
 @app.route("/new_entry/", methods=["GET", "POST"])
 def new_entry():
-    """add a new expense. redirect to previous and next page
+    """Page to add a new expense. If successful show entry_success, If fail show entry_fail. 
+    Link to redirect to show data and show graphs.
     """
     if request.method == "POST":
         time = request.form["date"]
@@ -45,7 +48,7 @@ def new_entry():
 
 @app.route("/show_all")
 def show_all():
-    """show all of the expenses. redirect to new entry and main page 
+    """Page that showw all of the expenses. Link to redirect to home page.
     """
     with sql.connect("database.db") as conn:
         c = conn.cursor()
@@ -56,6 +59,8 @@ def show_all():
 
 @app.route("/delete", methods=["GET", "POST"])
 def delete():
+    """Page to authorize data erasure. Has a yes or no option.
+    """
     if request.method == "POST":
         try:
             with sql.connect("database.db") as conn:
@@ -70,7 +75,8 @@ def delete():
 
 @app.route("/graph")
 def graph():
-    """""" 
+    """Page that shows all the graphs based on data. Link to redirect to home page.
+    """ 
     with sql.connect("database.db") as conn:
         c = conn.cursor()
         data = c.execute(f"SELECT * FROM expenses").fetchall()
@@ -82,6 +88,12 @@ def graph():
     time_plot(processed_data_2)
     return render_template("graph.html")
 
-    
-if __name__ == '__main__': 
+def start_app():
+    create_db()
     app.run(debug=True)
+
+def main():
+    start_app()
+
+if __name__ == '__main__': 
+    main()
