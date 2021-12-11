@@ -10,9 +10,12 @@ There are a few packages needed in order for the code to work. Install flask, fl
   pip install flask-table
   pip install matplotlib
 ```
-   
-## Content
-### app.py
+
+## Execution
+Run the start_app() function in the app.py file in order to start the web application. It will create a web address that opers the application.
+
+## Content 
+#### app.py
 This python folder is used for several functions, which mainly are used to create a table and collect the data from the user. This folder uses the sqlite3 package, which is used to connect the database in order to execute the code.
 ### table.py
 This python folder is used to generate a table output filled with the information provided by the user. This folder uses flask_table package, which is used to display the table in the flask.
