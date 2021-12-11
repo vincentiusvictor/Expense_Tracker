@@ -1,18 +1,16 @@
-
 # Expense Tracker
 The target of our project is to create an expense tracker that could do two of the followings. First, it can record the user's expense and its details (category, amount, and description). Second it can display the expenses in table and graph for better visualization.
 
 
-
-
 ## Installation
+There are a few packages needed in order for the code to work. Install flask, flask-table, matplotlib, and sqlite3 in order to run the code.
 
-There are a few packages needed in order for the code to work. Install flask, flask-table, matplotlib in order to run the code.
-
+Here are the following modules:
 ```bash
   pip install flask
   pip install flask-table
   pip install matplotlib
+  pip install pysqlite3
 ```
     
 ## Content 
