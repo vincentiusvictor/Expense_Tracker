@@ -12,7 +12,10 @@ Here are the following modules:
   pip install matplotlib
   pip install pysqlite3
 ```
-    
+
+# Execution
+Run the app.py file and it will show an IP address for the project's website.
+
 ## Content 
 ### app.py
 This python folder is used for several functions, which mainly are used to create a table and collect the data from the user. This folder uses the sqlite3 package, which is used to connect the database in order to execute the code.
@@ -28,5 +31,3 @@ This python folder is used to set up the website and route each link to their re
 The templates file include multiple html files that is used to design the website. Files explainarion is as followed: main_page.html (home page), new_entry_form.html (form page for the user to fill out their expense), entry_success.html (redirect the page to result if entry is successful), entry_fail.html (shows error message if information is lacking), results.html (page that shows the result in table), delete.html (page to delete all of the previous data), and graph.html (page to show the graph).
 ### static
 This file is to save the image output from the bar_chart.py and line_chart.py
-## Execution
-Run the app.py file and it will show an IP address for the project's website.
